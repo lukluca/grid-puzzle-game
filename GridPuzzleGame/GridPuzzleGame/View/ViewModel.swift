@@ -118,6 +118,18 @@ extension ContentView.ViewModel {
         case win(Source)
         case failure
         
+        var hint: String {
+            switch self {
+            case .initial, .loading, .failure:
+                return ""
+            case .playing:
+                return String(localized: "Recompose the image!")
+            case .win:
+                let value = String(localized: "You completed the game!!!")
+                return "🏆 " + value + " 🏆"
+            }
+        }
+        
         var description: String {
             switch self {
             case .initial:

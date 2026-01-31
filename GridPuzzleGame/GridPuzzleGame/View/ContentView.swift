@@ -46,22 +46,24 @@ struct ContentView: View {
                                 )
                             )
                         case .win(let source):
-                            EmptyView() // TODO: add image
+                            Image(uiImage: source.image)
+                                .resizable()
+                                .frame(width: dimension, height: dimension)
                         }
                         
                         if (geometry.size.width < geometry.size.height) {
-                            Text("Recompose the image!")
+                            Text(viewModel.state.hint)
                                 .padding(.top)
                         }
                         
                         buttonsStackView(from: geometry.size) {
                             
                             if (geometry.size.width > geometry.size.height) {
-                                Text("Recompose the image!")
+                                Text(viewModel.state.hint)
                                     .padding(.bottom)
                             }
                             
-                            // TODO: add buttons
+                            // TODO: add buttons and handle disable/enabled state
                             
                             Spacer()
                             
