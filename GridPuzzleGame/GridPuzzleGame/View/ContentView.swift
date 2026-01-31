@@ -34,7 +34,17 @@ struct ContentView: View {
                             Color(white: 0.95)
                                 .frame(width: dimension, height: dimension)
                         case .playing(let source):
-                            EmptyView() // TODO: add image
+                            Color(white: 0.95)
+                                .frame(width: dimension, height: dimension)
+                                .overlay(
+                                    Grid(
+                                        viewModel: .init(
+                                        puzzle: viewModel.puzzle,
+                                        image: source.image,
+                                        dimension: dimension
+                                    )
+                                )
+                            )
                         case .win(let source):
                             EmptyView() // TODO: add image
                         }
