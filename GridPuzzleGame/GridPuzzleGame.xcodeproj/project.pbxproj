@@ -14,19 +14,11 @@
 			remoteGlobalIDString = 4ADCFA472F261AB000344A1B;
 			remoteInfo = GridPuzzleGame;
 		};
-		4ADCFA602F261AB200344A1B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4ADCFA402F261AB000344A1B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4ADCFA472F261AB000344A1B;
-			remoteInfo = GridPuzzleGame;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4ADCFA482F261AB000344A1B /* GridPuzzleGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GridPuzzleGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ADCFA552F261AB200344A1B /* GridPuzzleGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GridPuzzleGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4ADCFA5F2F261AB200344A1B /* GridPuzzleGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GridPuzzleGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -38,11 +30,6 @@
 		4ADCFA582F261AB200344A1B /* GridPuzzleGameTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = GridPuzzleGameTests;
-			sourceTree = "<group>";
-		};
-		4ADCFA622F261AB200344A1B /* GridPuzzleGameUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = GridPuzzleGameUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -62,13 +49,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4ADCFA5C2F261AB200344A1B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -77,7 +57,6 @@
 			children = (
 				4ADCFA4A2F261AB000344A1B /* GridPuzzleGame */,
 				4ADCFA582F261AB200344A1B /* GridPuzzleGameTests */,
-				4ADCFA622F261AB200344A1B /* GridPuzzleGameUITests */,
 				4ADCFA492F261AB000344A1B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,7 +66,6 @@
 			children = (
 				4ADCFA482F261AB000344A1B /* GridPuzzleGame.app */,
 				4ADCFA552F261AB200344A1B /* GridPuzzleGameTests.xctest */,
-				4ADCFA5F2F261AB200344A1B /* GridPuzzleGameUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,29 +118,6 @@
 			productReference = 4ADCFA552F261AB200344A1B /* GridPuzzleGameTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4ADCFA5E2F261AB200344A1B /* GridPuzzleGameUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4ADCFA6F2F261AB200344A1B /* Build configuration list for PBXNativeTarget "GridPuzzleGameUITests" */;
-			buildPhases = (
-				4ADCFA5B2F261AB200344A1B /* Sources */,
-				4ADCFA5C2F261AB200344A1B /* Frameworks */,
-				4ADCFA5D2F261AB200344A1B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4ADCFA612F261AB200344A1B /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				4ADCFA622F261AB200344A1B /* GridPuzzleGameUITests */,
-			);
-			name = GridPuzzleGameUITests;
-			packageProductDependencies = (
-			);
-			productName = GridPuzzleGameUITests;
-			productReference = 4ADCFA5F2F261AB200344A1B /* GridPuzzleGameUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -177,10 +132,6 @@
 						CreatedOnToolsVersion = 26.2;
 					};
 					4ADCFA542F261AB200344A1B = {
-						CreatedOnToolsVersion = 26.2;
-						TestTargetID = 4ADCFA472F261AB000344A1B;
-					};
-					4ADCFA5E2F261AB200344A1B = {
 						CreatedOnToolsVersion = 26.2;
 						TestTargetID = 4ADCFA472F261AB000344A1B;
 					};
@@ -203,7 +154,6 @@
 			targets = (
 				4ADCFA472F261AB000344A1B /* GridPuzzleGame */,
 				4ADCFA542F261AB200344A1B /* GridPuzzleGameTests */,
-				4ADCFA5E2F261AB200344A1B /* GridPuzzleGameUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -217,13 +167,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4ADCFA532F261AB200344A1B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4ADCFA5D2F261AB200344A1B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -247,13 +190,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4ADCFA5B2F261AB200344A1B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -261,11 +197,6 @@
 			isa = PBXTargetDependency;
 			target = 4ADCFA472F261AB000344A1B /* GridPuzzleGame */;
 			targetProxy = 4ADCFA562F261AB200344A1B /* PBXContainerItemProxy */;
-		};
-		4ADCFA612F261AB200344A1B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4ADCFA472F261AB000344A1B /* GridPuzzleGame */;
-			targetProxy = 4ADCFA602F261AB200344A1B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -503,46 +434,6 @@
 			};
 			name = Release;
 		};
-		4ADCFA702F261AB200344A1B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G58Y4PZ34Q;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = lukluca.GridPuzzleGameUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GridPuzzleGame;
-			};
-			name = Debug;
-		};
-		4ADCFA712F261AB200344A1B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G58Y4PZ34Q;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = lukluca.GridPuzzleGameUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GridPuzzleGame;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -569,15 +460,6 @@
 			buildConfigurations = (
 				4ADCFA6D2F261AB200344A1B /* Debug */,
 				4ADCFA6E2F261AB200344A1B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4ADCFA6F2F261AB200344A1B /* Build configuration list for PBXNativeTarget "GridPuzzleGameUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4ADCFA702F261AB200344A1B /* Debug */,
-				4ADCFA712F261AB200344A1B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
