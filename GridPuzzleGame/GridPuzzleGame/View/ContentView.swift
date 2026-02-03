@@ -63,7 +63,24 @@ struct ContentView: View {
                                     .padding(.bottom)
                             }
                             
-                            // TODO: add buttons and handle disable/enabled state
+                            ButtonWithAlert(
+                                title: "Shuffle",
+                                backgroundColor: .blue,
+                                action: viewModel.shuffle,
+                                isAlertPresented: $isShuffleAlertPresented
+                            )
+                                                        
+                            ButtonWithAlert(
+                                title: "New game",
+                                backgroundColor: .green,
+                                action: {
+                                    Task {
+                                        viewModel.observePuzzleCompletion()
+                                        await viewModel.loadImage()
+                                    }
+                                },
+                                isAlertPresented: $isNewGameAlertPresented
+                            )
                             
                             Spacer()
                             

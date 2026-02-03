@@ -61,6 +61,14 @@ extension ContentView {
         /// Shuffles the puzzle
         func shuffle() {
             puzzle.shuffle()
+            
+            if !puzzle.isComplete {
+                if case .win(let source) = state {
+                    state = .playing(source)
+                }
+            }
+            
+            observePuzzleCompletion()
         }
         
         /// Calculates the dimenasion of the grid

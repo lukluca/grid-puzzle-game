@@ -18,41 +18,34 @@ extension ContentView {
         @State private var draggedTile: Tile? // The tile that we are dragging
         
         var body: some View {
-            VStack(spacing: 0) {
+            SwiftUI.Grid(horizontalSpacing: 0, verticalSpacing: 0) {
                 ForEach(0..<viewModel.size, id: \.self) { row in
-                    HStack(spacing: 0) {
+                    GridRow {
                         ForEach(0..<viewModel.size, id: \.self) { column in
                             let tile = viewModel.tile(from: row, and: column)
-                            if draggedTile == tile {
-                                Color(white: 0.95)
-                                    .frame(width: viewModel.tileDimension, height: viewModel.tileDimension)
-                            } else {
+                            TileContainer(
+                                viewModel: viewModel,
+                                tile: tile,
+                                draggedTile: draggedTile
+                            )
+                            .onDrag({
+                                draggedTile = tile
+                                // Return a provider with the tile ID
+                                return NSItemProvider(object: String(tile.id.uuidString) as NSString)
+                            }, preview: {
                                 TileView(
                                     image: viewModel.image,
                                     tileIndex: tile.originalIndex,
                                     gridSize: viewModel.size,
-                                    dimension: viewModel.tileDimension,
-                                    isLocked: tile.isCorrectPosition
+                                    dimension: viewModel.tileDimension
                                 )
-                                .acceptDrag(if: !tile.isCorrectPosition, {
-                                    self.draggedTile = tile
-                                    // Return a provider with the tile ID
-                                    return NSItemProvider(object: String(tile.id.uuidString) as NSString)
-                                }, preview: {
-                                    TileView(
-                                        image: viewModel.image,
-                                        tileIndex: tile.originalIndex,
-                                        gridSize: viewModel.size,
-                                        dimension: viewModel.tileDimension,
-                                        isLocked: tile.isCorrectPosition
-                                    )
-                                })
-                                .onDrop(of: [.text], delegate: PuzzleDropDelegate(
-                                    tile: tile,
-                                    puzzle: viewModel.puzzle,
-                                    draggedTile: $draggedTile
-                                ))
-                            }
+                            })
+                            .onDrop(of: [.text], delegate: PuzzleDropDelegate(
+                                tile: tile,
+                                puzzle: viewModel.puzzle,
+                                draggedTile: $draggedTile
+                                
+                            ))
                         }
                     }
                 }
@@ -64,13 +57,35 @@ extension ContentView {
 }
 
 extension ContentView.Grid {
+    fileprivate struct TileContainer: View {
+        
+        let viewModel: ViewModel
+        let tile: Tile
+        let draggedTile: Tile?
+        
+        var body: some View {
+            if draggedTile == tile {
+                Color(white: 0.95)
+                    .frame(width: viewModel.tileDimension, height: viewModel.tileDimension)
+            } else {
+                TileView(
+                    image: viewModel.image,
+                    tileIndex: tile.originalIndex,
+                    gridSize: viewModel.size,
+                    dimension: viewModel.tileDimension
+                )
+            }
+        }
+    }
+}
+
+extension ContentView.Grid {
     struct TileView: View {
         let image: UIImage
         let tileIndex: Int
         let gridSize: Int
         let dimension: CGFloat
-        let isLocked: Bool
-        
+       
         var body: some View {
             ZStack {
                 // compute cropping offsets
@@ -91,11 +106,7 @@ extension ContentView.Grid {
                 }
                 Rectangle()
                     .stroke(Color.black.opacity(0.6), lineWidth: 1)
-                if isLocked {
-                    Color.black.opacity(0.25)
-                    Image(systemName: "lock.fill")
-                        .foregroundColor(.white)
-                }
+                
             }
             .frame(width: dimension, height: dimension)
             .contentShape(Rectangle())
@@ -140,25 +151,25 @@ fileprivate struct PuzzleDropDelegate: DropDelegate {
     let puzzle: PuzzleModel
     @Binding var draggedTile: Tile?
     
-    func dropEntered(info: DropInfo) {}
-    
     func performDrop(info: DropInfo) -> Bool {
-        defer {
+        if draggedTile == tile {
             draggedTile = nil
+            return false
         }
+        
         guard let draggedTile,
-              draggedTile != tile,
               let fromIndex = puzzle.tiles.firstIndex(of: draggedTile),
-              let toIndex = puzzle.tiles.firstIndex(of: tile),
-                !tile.isCorrectPosition
-        else { return false }
+              let toIndex = puzzle.tiles.firstIndex(of: tile)
+        else {
+            return false
+        }
         
         puzzle.swapPositions(fromIndex, toIndex)
         
+        self.draggedTile = nil
         
         return true
     }
-    
     
     func dropUpdated(info: DropInfo) -> DropProposal? {
         DropProposal(operation: .move)

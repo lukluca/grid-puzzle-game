@@ -45,7 +45,7 @@ final class PuzzleModel {
     /// Swap two positions, respecting locked flags (no-op if either is locked).
     func swapPositions(_ a: Int, _ b: Int) {
         guard a != b else { return }
-        if tiles[a].isCorrectPosition || tiles[b].isCorrectPosition { return }
+    
         tiles.swapAt(a, b)
         
         func updateTile(at index: Int) {
